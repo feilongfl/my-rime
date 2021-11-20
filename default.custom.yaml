@@ -4,6 +4,11 @@ patch:
   - schema: japanese
   - schema: esperanto
 
+  switcher:
+    caption: 〔方案選單〕
+    hotkeys:
+      - F4
+
   ascii_composer:
     good_old_caps_lock: true
     switch_key:
