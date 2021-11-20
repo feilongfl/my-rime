@@ -1,6 +1,7 @@
 patch:
   schema_list:
   - schema: luna_pinyin
+  - schema: japanese
   - schema: esperanto
 
   ascii_composer:
