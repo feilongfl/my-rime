@@ -2,18 +2,13 @@
 # encoding: utf-8
 
 schema:
-  schema_id: clover
-  name: 🍀️拼音
+  schema_id: feilong
+  name: 🐉中日
   version: "1.0.0"
   author:
-    - fkxxyz - https://www.fkxxyz.com
+    - feilong - https://feilong.home.blog
   description: |
-    由🍀️四叶草亲自定制，特点：
-      1. 结合搜狗输入法的输入习惯
-      2. 默认开启 emoji 表情支持
-      3. 加上很多特殊符号的输入支持
-      4. 繁简切换支持
-      5. 许多智能纠错
+    基于多种方案的中日混合输入
   dependencies:
     - emoji
 
@@ -50,11 +45,13 @@ engine:
     - ascii_segmentor
     - matcher
     - abc_segmentor
+    - affix_segmentor@janpanese_translator
     - punct_segmentor
     - fallback_segmentor
   translators:
     - punct_translator
     - script_translator
+    - script_translator@janpanese_translator
   filters:
     - simplifier@emoji_suggestion
     - simplifier@symbol_support
@@ -109,6 +106,20 @@ translator:
     - xform/([nl])v/$1ü/
     - xform/([nl])ue/$1üe/
     - xform/([jqxy])v/$1u/
+
+# translator:
+janpanese_translator:
+  tag: janpanese_translator
+  dictionary: japanese
+  spelling_hints: 5
+  initial_quality: 0.7
+  closing_tips: 🇯🇵
+  # preedit_format:
+  #   # - xform/^([a-z ])$/$1｜\U$1\E/
+  #   # - xform/(?<=[a-z])\s(?=[a-z])//
+  #   - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-=;'\\,./`|ちこそしいはきくにまのリもみらせたすとかなひてさんつぬふあうえおやゆよをほへれけむねるめろ|"
+  # comment_format:
+  #   - "xlit|abcdefghijklmnopqrstuvwxyz1234567890-=;'\\,./`|ちこそしいはきくにまのリもみらせたすとかなひてさんつぬふあうえおやゆよをほへれけむねるめろ|"
 
 punctuator:
   import_preset: symbols

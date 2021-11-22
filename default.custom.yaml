@@ -1,6 +1,7 @@
 patch:
   schema_list:
   # - schema: luna_pinyin
+  - schema: feilong
   - schema: clover
   - schema: japanese
   - schema: esperanto
@@ -9,6 +10,8 @@ patch:
     caption: 〔方案選單〕
     hotkeys:
       - F4
+    abbreviate_options: true
+    fold_options: true
 
   ascii_composer:
     good_old_caps_lock: true
